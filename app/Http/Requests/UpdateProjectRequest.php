@@ -27,6 +27,7 @@ class UpdateProjectRequest extends FormRequest
             'body' => ['nullable'],
             'image' => ['nullable', 'image'],
             'url' => ['nullable', 'url'],
+            'category_id' => ['nullable', 'exists:categories,id'],
         ];
     }
     public function messages(): array
