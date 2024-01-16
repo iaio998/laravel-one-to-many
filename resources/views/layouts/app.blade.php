@@ -22,11 +22,46 @@
 <body>
     <div id="app">
         @include('layouts.partials.header')
-        <main>
-
-            @yield('content')
-
-        </main>
+        <div class="d-flex">
+            <section id="lateral">
+                <div class="container">
+                    <div class="row flex-column align-items-center justify-content-center">
+                        @if(!Auth::check())
+                        <div class="col">
+                            Login to see more
+                        </div>
+                        @else
+                        <h3>Navigation menu</h3>
+                        <div class="col">
+                            <h5>Projects</h5>
+                            <ul>
+                                <li>
+                                    <a href="{{ route('admin.projects.index')}}"> All projects</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.projects.create')}}"> Create new</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Categories</h5>
+                            <ul>
+                                <li>
+                                    <a href="{{ route('admin.categories.index')}}"> All categories</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.categories.create')}}"> Create new</a>
+                                </li>
+                            </ul>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+            </section>
+            <main>
+                @yield('content')
+            </main>
+        </div>
     </div>
 </body>
 

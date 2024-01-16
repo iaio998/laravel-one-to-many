@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -23,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create', compact('categories'));
+        return view('admin.categories.create');
     }
 
     /**
@@ -31,7 +32,11 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-
+        $data = $request->validated();
+        $slug = Str::slug($data['name'], '-');
+        $data['slug'] = $slug;
+        $category = Category::create($data);
+        return redirect()->route('admin.categories.show', $category);
     }
 
     /**
@@ -55,7 +60,9 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $data = $request->validated();
+        $category->update($data);
+        return redirect()->route('admin.categories.show', $category);
     }
 
     /**
@@ -63,6 +70,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.categories.index');
     }
 }

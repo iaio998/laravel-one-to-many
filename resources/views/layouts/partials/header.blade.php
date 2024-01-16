@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light shadow-sm">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
             <div class="logo_laravel">
@@ -21,14 +21,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                 </li>
-                @if(Auth::check())
+                <!-- @if(Auth::check())
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/admin/projects') }}">{{ __('Projects') }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/admin/categories') }}">{{ __('Categories') }}</a>
                 </li>
-                @endif
+                @endif -->
             </ul>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
