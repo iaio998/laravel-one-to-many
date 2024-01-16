@@ -23,6 +23,11 @@ class Project extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function categorie()
+    {
+        return $this->belongsTo(Category::class);
+    }
     public static function getSlug($title)
     {
         $slug = Str::of($title)->slug('-');
