@@ -13,6 +13,11 @@
                 {{ $project->title }}
             </h2>
             <p>Description: {{ $project->body }}</p>
+            @if($project->category)
+            <p>Category: {{ $project->category->name }}</p>
+            @else
+            <p>No category</p>
+            @endif
             <a class="btn btn-primary" href="{{route('admin.projects.show', $project)}}">Show more</a>
         </div>
         <form action="{{route('admin.projects.destroy', $project)}}" method="POST">

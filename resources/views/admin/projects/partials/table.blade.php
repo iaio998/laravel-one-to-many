@@ -15,10 +15,12 @@
             <div class="w-75">{{$project->body}}</div>
         </td>
         <td>
-            <div class="img-cont"><img src="{{ asset('storage/' . $project->image) }}" alt="{{$project->title}}"></div>
+            <div class="img-cont">
+                <img src="{{ asset('storage/' . $project->image) }}" alt="{{$project->title}}">
+            </div>
         </td>
         <td class="px-5">
-            <a href="{{$project->url}}">Link to projeck</a>
+            <a href="{{$project->url}}">Link to project</a>
         </td>
         <td>
             <a class="btn btn-primary" href="{{route('admin.projects.show', $project)}}"><i
