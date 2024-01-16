@@ -9,7 +9,7 @@
         <div class="mb-3">
             <label for="name">Name:</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" required
-                maxlength="200" minlength="3" value="{{old('name', $project->name)}}">
+                maxlength="200" minlength="3" value="{{old('name', $category->name)}}">
             @error('name')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
